@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student attendance</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'bootstrap.min.css') }}">
+<body>
+    <div> <h5>Witaj, {{ login }}!
+        <a href="{{ url_for('logout') }}">Wyloguj się</a></h5></div>
+    <h1 class="text-center mt-3">Lista obecności</h1>
+        <div class="container mt-5 w-60">
+            <table class="table table-responsive table-bordered table-stripped text-center">
+                <thead>
+                <tr>
+                    <th class="col-1">Lp.</th>
+                    <th class="col-2">Imię</th>
+                    <th class="col-2">Nazwisko</th>
+                    <th class="col-2">Numer indeksu</th>
+                </tr>
+                </thead>
+                {% for student in studentDetails %}
+                <tbody>
+                <tr>
+                    <td>{{student[0]}}</td>
+                    <td>{{student[1]}}</td>
+                    <td>{{student[2]}}</td>
+                    <td>{{student[3]}}</td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>
